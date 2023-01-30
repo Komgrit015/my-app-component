@@ -23,7 +23,10 @@ export default{
           {name:"John",salary:"37000"},
           {name:"Duck",salary:"12000"},
           {name:"Ray",salary:"50000"},
-          {name:"Juk",salary:"22000"}
+          {name:"Juk",salary:"22000"},
+
+
+
 
         ]
     }
