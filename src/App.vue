@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+  
+      <FormComponent/>
+      <ListData :employees="employees"/>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FormComponent from './components/FormComponent.vue'
+import ListData from './components/ListData.vue'
+export default{
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name :"App",
+  components:{
+      ListData,
+      FormComponent
+  },
+  data(){
+    return{
+        employees:[
+          {name:"Mark",salary:"35000"},
+          {name:"John",salary:"37000"},
+          {name:"Duck",salary:"12000"},
+          {name:"Ray",salary:"50000"},
+          {name:"Juk",salary:"22000"}
+
+        ]
+    }
   }
 }
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+</script>
