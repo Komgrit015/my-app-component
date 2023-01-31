@@ -2,6 +2,7 @@
   <header>
       <h1>System Manegment Employee</h1>
   </header>
+  <FormComponent></FormComponent>
   <section class="employee-content">
       <h2>Employee Information</h2>
       <ListData/>
@@ -10,11 +11,13 @@
 
 <script>
 import ListData from './components/ListData.vue'
+import FormComponent from './components/FormComponent.vue';
 export default{
 
   name :"App",
   components:{
-      ListData
+      ListData,
+      FormComponent
   }
 }
 
