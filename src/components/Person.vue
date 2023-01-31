@@ -1,13 +1,20 @@
 <template>
     <Card>
-        <h1>Name : {{ name }}</h1>
-        <button @click="showDescription(id)">Infornation</button>&nbsp;
-        <button @click="deleteemployee(id)">Delete</button>
-        <transition name="fade">
-            <div v-show="isVisible">
-                <p> Salary: {{ salary }} ฿ , Department : {{ department }}</p>
-            </div>   
-        </transition>
+        <template v-slot:card-header>
+             <h1>Name : {{ name }}</h1>
+        </template>
+        <template v-slot:card-button>
+            <button @click="showDescription(id)">Infornation</button>&nbsp;
+            <button @click="deleteemployee(id)">Delete</button>
+        </template>
+        <template v-slot:card-content>
+            <transition name="fade">
+                <div v-show="isVisible">
+                    <p> Salary: {{ salary }} ฿ , Department : {{ department }}</p>
+                </div>   
+            </transition>
+        </template>
+   
     </Card>
 </template>
 
