@@ -3,16 +3,19 @@
         <template v-slot:card-header>
              <h1>Name : {{ name }}</h1>
         </template>
-        <template v-slot:card-button>
+        <!-- <template v-slot:card-button>
             <button @click="showDescription(id)">Infornation</button>&nbsp;
             <button @click="deleteemployee(id)">Delete</button>
-        </template>
+        </template> -->
         <template v-slot:card-content>
-            <transition name="fade">
+            <p>Salary : {{ salary }} บาท , เพศ : {{gender}}</p>
+            <p>Department : {{ department }}</p>
+            <p>Skill : {{skill}}</p>
+            <!-- <transition name="fade">
                 <div v-show="isVisible">
                     <p> Salary: {{ salary }} ฿ , Department : {{ department }}</p>
                 </div>   
-            </transition>
+            </transition> -->
         </template>
    
     </Card>
@@ -26,9 +29,9 @@ export default {
         Card,
     },
     props: {
-        id:{
-            type:Number
-        },
+        // id:{
+        //     type:Number
+        // },
         name: {
             type: String,
             required: true,
@@ -41,19 +44,25 @@ export default {
             type: String,
             required: true
         },
-        isVisible: {
-            type: Boolean
-        }
-    },
-    methods:{
-        showDescription(id){
-            this.$emit("show",id);
-        },
-        deleteemployee(id){
-            this.$emit("delete",id);
-        }
+        gender:{
+            type:String
+            },
+        skill:{
+            type:Array
+            }
+        // isVisible: {
+        //     type: Boolean
+        // }
     }
-}
+    // methods:{
+    //     showDescription(id){
+    //         this.$emit("show",id);
+    //     },
+    //     deleteemployee(id){
+    //         this.$emit("delete",id);
+    //     }
+    // }
+};
 </script>
 
 <style scoped>

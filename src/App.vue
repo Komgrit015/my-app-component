@@ -2,10 +2,11 @@
   <header>
       <h1>System Manegment Employee</h1>
   </header>
-  <FormComponent></FormComponent>
-  <section class="employee-content">
+  <FormComponent @save="insertEmployee">
+  </FormComponent>
+  <section class="employee-content" v-if="employees.length > 0">
       <h2>Employee Information</h2>
-      <ListData/>
+      <ListData :employees="employees"/>
   </section>
 </template>
 
@@ -18,6 +19,16 @@ export default{
   components:{
       ListData,
       FormComponent
+  },
+  data(){
+    return{
+      employees:[]
+    }
+  },
+  methods:{
+    insertEmployee(data){
+        this.employees.push(data);
+    }
   }
 }
 
