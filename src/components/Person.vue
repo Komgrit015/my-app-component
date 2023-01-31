@@ -1,17 +1,23 @@
 <template>
-    <li>
+    <Card>
         <h1>Name : {{ name }}</h1>
         <button @click="showDescription(id)">Infornation</button>&nbsp;
         <button @click="deleteemployee(id)">Delete</button>
-        <div v-show="isVisible">
-            <p> Salary: {{ salary }} ฿ , Department : {{ department }}</p>
-        </div>    
-    </li>
+        <transition name="fade">
+            <div v-show="isVisible">
+                <p> Salary: {{ salary }} ฿ , Department : {{ department }}</p>
+            </div>   
+        </transition>
+    </Card>
 </template>
 
 <script>
+import Card from "./Card.vue";
 export default {
     name:"Person",
+    components: {
+        Card,
+    },
     props: {
         id:{
             type:Number
@@ -44,15 +50,6 @@ export default {
 </script>
 
 <style scoped>
-    li{
-        margin: 1rem 0;
-        font-size: 1.25rem;
-        font-weight: blod;
-        background: #8ddba4;
-        padding: 0.5rem;
-        color: #1f1f1f;
-        border-radius: 25px;
-    }
 
     button{
         font: inherit;
@@ -62,6 +59,12 @@ export default {
         color: #fff;
         padding: 0.05rem 1rem ;
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+    }
+    .fade-enter-from{
+        opacity: 0;
+    }
+    .fade-enter-active{
+        transition: all 0.5s linear;
     }
 
 </style>

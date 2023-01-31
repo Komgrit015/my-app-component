@@ -20,6 +20,7 @@ export default {
   name: "ListData",
   components: {
     Person,
+  
   },
   data() {
     return {
