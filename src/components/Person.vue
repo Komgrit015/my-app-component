@@ -1,8 +1,8 @@
 <template>
     <li>
         <h1>Name : {{ name }}</h1>
-        <button>Infornation</button>&nbsp;
-        <button>Delete</button>
+        <button @click="showDescription(id)">Infornation</button>&nbsp;
+        <button @click="deleteemployee(id)">Delete</button>
         <div v-show="isVisible">
             <p> Salary: {{ salary }} ฿ , Department : {{ department }}</p>
         </div>    
@@ -30,6 +30,14 @@ export default {
         },
         isVisible: {
             type: Boolean
+        }
+    },
+    methods:{
+        showDescription(id){
+            this.$emit("show",id);
+        },
+        deleteemployee(id){
+            this.$emit("delete",id);
         }
     }
 }
